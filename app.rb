@@ -113,8 +113,6 @@ class RodaDemo < Roda
     r.on "auth" do
       r.rodauth
     end
-    rodauth.require_authentication
-
     r.public
     r.assets
     check_csrf!

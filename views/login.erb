@@ -1,0 +1,23 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" role="form" method="POST">
+      <%== rodauth.login_additional_form_tags %>
+      <%== rodauth.csrf_tag %>
+      <%== rodauth.skip_login_field_on_login? ? rodauth.render('login-display') : rodauth.render('login-field') %>
+      <%== rodauth.render('password-field') unless rodauth.skip_password_field_on_login? %>
+
+      <div>
+        <%== rodauth.button(rodauth.login_button) %>
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-gray-500">
+      Not a member?
+      <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
+    </p>
+  </div>
+</div>
