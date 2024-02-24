@@ -1,3 +1,3 @@
 # frozen_string_literal: true
-class Model1 < Sequel::Model
+class Account < Sequel::Model
 end

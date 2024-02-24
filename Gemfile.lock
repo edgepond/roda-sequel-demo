@@ -1,0 +1,85 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
+    bcrypt (3.1.20)
+    bigdecimal (3.1.6)
+    capybara (3.40.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.11)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
+    docile (1.4.0)
+    erubi (1.12.0)
+    ffi (1.16.3)
+    matrix (0.4.2)
+    mini_mime (1.1.5)
+    mini_portile2 (2.8.5)
+    minitest (5.22.2)
+    minitest-global_expectations (1.0.1)
+      minitest (> 5)
+    minitest-hooks (1.5.1)
+      minitest (> 5.3)
+    nokogiri (1.16.2)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    public_suffix (5.0.4)
+    racc (1.7.3)
+    rack (3.0.9.1)
+    rack-test (2.1.0)
+      rack (>= 1.3)
+    rack-unreloader (2.1.0)
+    rake (13.1.0)
+    refrigerator (1.7.0)
+    regexp_parser (2.9.0)
+    roda (3.77.0)
+      rack
+    rodauth (2.33.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sequel (5.77.0)
+      bigdecimal
+    sequel-annotate (1.7.0)
+      sequel (>= 4)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
+    sqlite (1.0.2)
+    tilt (2.3.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
+
+PLATFORMS
+  x86_64-openbsd
+
+DEPENDENCIES
+  bcrypt
+  capybara
+  erubi (>= 1.5)
+  minitest (>= 5.7.0)
+  minitest-global_expectations
+  minitest-hooks (>= 1.1.0)
+  rack-unreloader (>= 2.1)
+  rake
+  refrigerator (>= 1)
+  roda (>= 3.66)
+  rodauth
+  sassc (>= 2)
+  sequel (>= 5.62)
+  sequel-annotate
+  simplecov
+  sqlite
+  tilt (>= 2.2)
+
+BUNDLED WITH
+   2.4.21

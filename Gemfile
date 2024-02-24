@@ -6,9 +6,11 @@ gem 'erubi', '>= 1.5'
 gem 'roda', '>= 3.66'
 gem 'refrigerator', '>= 1'
 gem 'sequel', '>= 5.62'
-gem 'sequel_pg', '>= 1.8', require: 'sequel'
+gem 'sqlite'
 gem 'rack-unreloader', '>= 2.1'
 gem 'rake'
+gem 'rodauth'
+gem 'bcrypt'
 
 group :development do
   gem 'sequel-annotate'

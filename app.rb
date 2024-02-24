@@ -6,7 +6,7 @@ require 'roda'
 require 'tilt'
 require 'tilt/erubi'
 
-class App < Roda
+class RodaDemo < Roda
   opts[:check_dynamic_arity] = false
   opts[:check_arity] = :warn
 
@@ -87,9 +87,21 @@ class App < Roda
   end
 
   plugin :sessions,
-    key: '_App.session',
+    key: '_RodaDemo.session',
     #cookie_options: {secure: ENV['RACK_ENV'] != 'test'}, # Uncomment if only allowing https:// access
-    secret: ENV.send((ENV['RACK_ENV'] == 'development' ? :[] : :delete), 'APP_SESSION_SECRET')
+    secret: ENV.send((ENV['RACK_ENV'] == 'development' ? :[] : :delete), 'RODA_DEMO_SESSION_SECRET')
+
+  plugin :rodauth do
+    enable :create_account, :login, :logout, :internal_request
+    prefix 'auth'
+    logout_redirect '/'
+  end
+  if ENV['RACK_ENV'] == 'development'
+  	# demo user
+    if !Account.first(email: 'demo@edgepond.com')
+      rodauth.create_account(login: 'demo@edgepond.com', password: 'demouser.12')
+    end
+  end
 
   if Unreloader.autoload?
     plugin :autoload_hash_branches
@@ -98,6 +110,11 @@ class App < Roda
   Unreloader.autoload('routes', :delete_hook=>proc{|f| hash_branch(File.basename(f).delete_suffix('.rb'))}){}
 
   route do |r|
+    r.on "auth" do
+      r.rodauth
+    end
+    rodauth.require_authentication
+
     r.public
     r.assets
     check_csrf!
@@ -105,7 +122,7 @@ class App < Roda
     r.hash_branches('')
 
     r.root do
-      view 'index'
+      r.redirect '/home'
     end
   end
 end
