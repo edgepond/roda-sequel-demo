@@ -95,6 +95,9 @@ class RodaDemo < Roda
     enable :create_account, :login, :logout, :internal_request
     prefix 'auth'
     logout_redirect '/'
+    if ENV['RACK_ENV'] == 'development'
+      cache_templates = false
+    end
   end
   if ENV['RACK_ENV'] == 'development'
   	# demo user
